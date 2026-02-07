@@ -1,0 +1,67 @@
+SYSTEM ARCHITECTURE PROMPT: ELITE CANINE REGISTRY & GENETICS PLATFORM (WAR TANK EDITION)
+
+Objetivo: Crear una plataforma integral de registro canino de grado comercial, inspirada en UKC pero con una arquitectura SaaS de última generación (2025). El sistema debe ser escalable, seguro, bilingüe y listo para producción masiva.
+
+1. STACK TECNOLÓGICO Y RENDIMIENTO
+
+Frontend: Next.js 14+ (App Router), Tailwind CSS, Framer Motion.
+
+Internacionalización (i18n): Implementar next-intl o react-i18next para soporte completo en Español e Inglés.
+
+Backend: Node.js con TypeScript (NestJS) o Python (FastAPI).
+
+Base de Datos: PostgreSQL con extensión ltree para jerarquías y Redis para caché.
+
+Almacenamiento: AWS S3 / Google Cloud Storage con CDN (CloudFront) para entrega rápida de imágenes.
+
+2. CORE FEATURES (LÓGICA DE NEGOCIO AVANZADA)
+
+Gestión Multimedia Avanzada (Fotos de Pedigrí): * Soporte para múltiples fotos por ejemplar (Perfil, Estructura, Acción).
+
+Procesamiento en servidor para redimensionamiento automático (Thumbnails para el árbol, HD para la ficha).
+
+Watermarking: Aplicación automática de marca de agua con el logo del registro para proteger la propiedad intelectual de las fotos.
+
+Motor de Pedigrí Dinámico: Generación de árboles de 5 a 7 generaciones. Validación biológica estricta (edad fértil, sexo, bloqueos por parentesco).
+
+Algoritmo de Consanguinidad y Proyección: * Cálculo de COI (Wright).
+
+Trial Mating: Función para simular cruces entre dos perros de la base de datos y predecir el COI y posibles rasgos de la camada resultante.
+
+Gestión de Títulos y Puntos: Motor de reglas configurable para otorgar títulos (CH, GRCH).
+
+Bóveda de Salud y ADN: Validación de integridad de datos y marcas de agua digitales en los certificados PDF.
+
+Módulo de E-commerce: Integración con Stripe para cobros recurrentes, pagos únicos y Tax Management automático.
+
+3. ESPECIFICACIONES DE DISEÑO (UI/UX PREMIUM)
+
+Estética: High-End Dark Mode. Fondo: #06080a, Superficies: #12141c, Acentos: Blue-500 (#3b82f6).
+
+Componentes Críticos: Omnisearch, Árbol de pedigrí interactivo con visualización de fotos en cada nodo (miniaturas circulares), y Dashboard de salud.
+
+4. SEGURIDAD, CUMPLIMIENTO Y VERIFICACIÓN
+
+Verificación de Identidad (KYC): Integración con Stripe Identity o Sumsub.
+
+Firmas Digitales: Certificados de registro firmados criptográficamente (hash único por documento).
+
+Auditoría: Ledger Tables para rastrear el historial de propiedad y cambios en el linaje sin posibilidad de borrado.
+
+5. ESTRUCTURA DE LA BASE DE DATOS (ESQUEMA RELACIONAL)
+
+Jerarquía: Uso de ltree para consultas de ancestros/descendientes ultra-rápidas.
+
+Tablas: Users, Dogs, Media (vínculo a S3), Breeds, Health_Records, Events, Show_Results, Transactions, Audit_Logs.
+
+Localización: Campos JSONB para multilenguaje.
+
+6. INFRAESTRUCTURA Y DESPLIEGUE (PRO-TIER)
+
+Dockerización: Dockerfile optimizado y docker-compose.yml.
+
+Resiliencia: Backups diarios automáticos y Sentry para monitoreo de errores críticos.
+
+7. INSTRUCCIÓN FINAL PARA LA IA
+
+"Desarrolla este sistema bajo un enfoque de TDD. Es obligatorio que toda la interfaz, correos y mensajes estén en Español e Inglés. Implementa el sistema de carga de fotos con validación de formato y tamaño. Asegúrate de que el árbol genealógico muestre las fotos de los ancestros. El sistema debe ser 'plug-and-play', incluyendo archivos de entorno (.env.example) y configuración de Docker para producción inmediata."

@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 216 33% 3%; /* #06080a - Very dark blue/black */
+  --foreground: 210 20% 98%;
+
+  --card: 216 28% 5%;
+  --card-foreground: 210 20% 98%;
+
+  --popover: 216 33% 4%;
+  --popover-foreground: 210 20% 98%;
+
+  --primary: 217 91% 60%; /* Blue-500 #3b82f6 */
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 151 55% 41%; /* Emerald-600 */
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 215 28% 12%;
+  --muted-foreground: 215 20% 65%;
+
+  --accent: 217 91% 60%;
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 215 28% 15%;
+  --input: 215 28% 15%;
+  --ring: 217 91% 60%;
+
+  --radius: 0.75rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-card/60 backdrop-blur-md border border-white/5 shadow-xl;
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  }
+  
+  .border-gradient {
+    background: linear-gradient(#06080a, #06080a) padding-box,
+                linear-gradient(45deg, #3b82f6, #10b981) border-box;
+    border: 1px solid transparent;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted rounded-full hover:bg-muted-foreground/50 transition-colors;
+}

@@ -1,0 +1,67 @@
+SYSTEM ARCHITECTURE PROMPT: ELITE CANINE REGISTRY & GENETICS PLATFORM (ENTERPRISE EDITION)
+
+Objetivo: Crear una plataforma integral de registro canino de grado comercial, inspirada en UKC pero con una arquitectura SaaS de última generación (2025). El sistema debe ser escalable, seguro y listo para producción masiva.
+
+1. STACK TECNOLÓGICO Y RENDIMIENTO
+
+Frontend: Next.js 14+ (App Router), Tailwind CSS, Framer Motion para micro-interacciones, y TanStack Query para gestión de estado.
+
+Backend: Node.js con TypeScript (NestJS para arquitectura modular) o Python (FastAPI para procesamiento de datos genéticos).
+
+Base de Datos: PostgreSQL con soporte para transacciones ACID y Redis para caché de consultas de pedigrí frecuentes.
+
+Almacenamiento: AWS S3 o Google Cloud Storage para certificados y documentos PDF con firmas digitales.
+
+2. CORE FEATURES (LÓGICA DE NEGOCIO AVANZADA)
+
+Motor de Pedigrí Dinámico: Generación de árboles de 5 a 7 generaciones con carga perezosa (lazy loading). Debe detectar inconsistencias biológicas automáticamente (ej. fechas de nacimiento imposibles entre padres e hijos).
+
+Algoritmo de Consanguinidad (COI): Cálculo preciso del Coeficiente de Inbreeding utilizando el método de Wright, recorriendo todos los ancestros comunes en la base de datos.
+
+Gestión de Títulos y Puntos: Sistema de lógica booleana que otorga títulos (CH, GRCH) cuando se cumplen condiciones específicas de puntos y victorias en eventos registrados.
+
+Bóveda de Salud y ADN: Módulo para cargar resultados de laboratorios externos (Embark, Wisdom Panel, etc.), con validación de metadatos para evitar falsificaciones.
+
+Módulo de E-commerce y Facturación: Integración con Stripe para cobro de registros, membresías anuales y preventa de entradas a eventos, cumpliendo con estándares PCI-DSS.
+
+3. ESPECIFICACIONES DE DISEÑO (UI/UX PREMIUM)
+
+Estética: High-End Dark Mode. Fondo: #06080a, Superficies: #12141c, Acentos: Blue-500 (#3b82f6) y Emerald-500 para estados positivos.
+
+Tipografía: Space Grotesk (Títulos) y Inter (Cuerpo de texto) para máxima legibilidad.
+
+Componentes Críticos:
+
+Omnisearch: Buscador predictivo que filtra por Microchip, DNA Token, Nombre o Prefijo de Criador.
+
+Dashboard de Control: Visualización de métricas de salud poblacional del criadero mediante gráficos de radar y series temporales.
+
+Mobile-First: Interfaz 100% responsiva con gestos táctiles para navegar por el árbol genealógico.
+
+4. SEGURIDAD Y CUMPLIMIENTO (ZERO ERROR POLICY)
+
+Autenticación: OAuth2 / OpenID Connect con Soporte Multi-Factor (MFA).
+
+Privacidad: Cumplimiento con GDPR y CCPA (anonimización de datos de dueños si se solicita).
+
+Auditoría: Registro (logging) de todos los cambios en la base de datos (quién cambió el padre de un perro y cuándo) para evitar fraudes en registros.
+
+5. ESTRUCTURA DE LA BASE DE DATOS (ESQUEMA RELACIONAL)
+
+Genera las siguientes tablas con llaves foráneas y restricciones (constraints) de integridad:
+
+Users: (id, uuid, name, breeder_prefix, email, password_hash, role_id, kyc_status).
+
+Dogs: (id, microchip_id, registration_no, name, breed_id, sex, birth_date, sire_id, dam_id, owner_id, breeder_id, coi_score).
+
+Breeds: (id, name, group, standard_description).
+
+Health_Records: (id, dog_id, test_code, result_data, lab_name, verified_at).
+
+Events: (id, slug, title, start_date, location_coords, entry_fee, max_entries).
+
+Show_Results: (id, event_id, dog_id, placement, points_earned, judge_id).
+
+6. INSTRUCCIÓN FINAL PARA LA IA
+
+"Desarrolla este sistema bajo un enfoque de desarrollo basado en pruebas (TDD). Comienza por el esquema de base de datos optimizado para consultas jerárquicas (pedigrí). Luego, construye el backend con validación estricta de esquemas (Zod o Pydantic). Finalmente, crea el frontend asegurando que el diseño sea minimalista, oscuro y transmita una sensación de autoridad y lujo tecnológico. Cada componente debe ser modular y reutilizable. No ignores los casos de error: cada formulario debe tener validación y estados de error claros."
